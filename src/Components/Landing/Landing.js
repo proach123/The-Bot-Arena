@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../Landing/landing.css'
+import breakBot from './audio/Breakbot.mp3'
+console.log(breakBot)
 
 
 
@@ -127,6 +129,7 @@ export default function Landing(props) {
   
   
     return (
+
      <div className='landing'>
      
       <div className='HeaderStats'>
@@ -180,9 +183,8 @@ export default function Landing(props) {
       </div>
       <div>{mappedShop}</div>
       
-      <div></div>
+      <tag></tag>
 
-      
 
       
        

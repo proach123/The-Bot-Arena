@@ -5,6 +5,7 @@
   "proxy": "http://localhost:4040",
   "main": "server/server.js",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "connect-pg-simple": "^5.0.0",
     "dotenv": "^7.0.0",
