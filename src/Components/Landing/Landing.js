@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import '../Landing/landing.css'
 
 
 
@@ -96,12 +97,12 @@ export default function Landing(props) {
   const mappedShop = shop.map((item) => {
     //filter out anything in bot.items
     return (
-      <div>
+      <div className='itemDisplay'>
         
         <h3>{item.name}</h3>
         <h5>Item cost: {item.cost}</h5>
         <h5>item type: {item.type}</h5>
-        <h5>item stats: attack: {item.attack} defence: {item.hp} speed bonus: {item.speed}</h5>
+        <h5>attack: {item.attack} defence: {item.hp} speed bonus: {item.speed}</h5>
         <button onClick={()=>buyPart(item)}>Purchase</button>
 
       </div>
@@ -112,7 +113,7 @@ export default function Landing(props) {
   const mappedProtoItems = protoBot.items.map((item) => {
     
     return (
-      <div>
+      <div className='ProtobotItems'>
         
         <h3>{item.name}</h3>
         <p>Attack bonus: {item.attack}</p>
@@ -126,28 +127,67 @@ export default function Landing(props) {
   
   
     return (
-     <>
+     <div className='landing'>
+     
+      <div className='HeaderStats'>
+  <div className="fire">
+    <div class="fire-left">
+    <div class="main-fire"></div>
+    <div class="particle-fire"></div>
+    </div>
+    <div class="fire-main">
+    <div class="main-fire"></div>
+    <div class="particle-fire"></div>
+    </div>
+    <div class="fire-right">
+    <div class="main-fire"></div>
+    <div class="particle-fire"></div>
+    </div>
+    <div class="fire-bottom">
+    <div class="main-fire"></div>
+    </div>
+
+
+    <div class="gears" id="two-gears">
     
-      <h1>Battle Bots V1</h1>
+    <div class="gears-container">
+      <div class="gear-rotate"></div>
+      <div class="gear-rotate-left"></div>
+    </div>
+
+      <h1>Welcome to the Factory</h1>
+  </div>
+  
+</div>
+
+      <div className='bigiftrue'>
+      <h1>Battle Bots V2</h1>
+      <input placeholder='bot name' onChange={handleInput} type="text"/>
       <p>Your bot name: {protoBot.name}</p>
       <p>Attack: {protoBot.baseAttack}</p>
       <p>Hp: {protoBot.baseHp}</p>
       <p>Speed: {protoBot.baseSpeed}</p>
       <p>Items: {mappedProtoItems}</p>
-      <h2>Choose your bot parts!</h2>
-      <p>your balance: ${balance}</p>
+      <h2>Choose your botty parts!</h2>
+      
+      <p>Your Balance:<div className='balance'> ${balance}</div></p>
+      </div>
+      </div>
+      <div className='create'>
+      <Link to={`/arena`}>
+      <button onClick={createBot}>Create</button>
+      </Link>
+      </div>
       <div>{mappedShop}</div>
       
       <div></div>
 
-      <input placeholder='bot name' onChange={handleInput} type="text"/>
+      
 
-      <Link to={`/arena`}>
-      <button onClick={createBot}>Create</button>
-      </Link>
+      
        
             
-      </>
+      </div>
     );
   
 }
